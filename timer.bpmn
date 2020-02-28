@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions
+        xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+        id="Definitions_1fxbnlg"
+        targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)"
+        exporterVersion="6.3.0">
+    <bpmn:process id="Process_148j84p" name="timer" isExecutable="true">
+        <bpmn:startEvent id="StartEvent_0le6krz">
+            <bpmn:outgoing>Flow_0kwgicf</bpmn:outgoing>
+        </bpmn:startEvent>
+        <bpmn:sequenceFlow id="Flow_0kwgicf" sourceRef="StartEvent_0le6krz" targetRef="Activity_0utsuez"/>
+        <bpmn:userTask id="Activity_0utsuez" name="Process Content">
+            <bpmn:incoming>Flow_0kwgicf</bpmn:incoming>
+            <bpmn:outgoing>Flow_03kaxqk</bpmn:outgoing>
+            <bpmn:outgoing>Flow_1wkjrcq</bpmn:outgoing>
+        </bpmn:userTask>
+        <bpmn:sequenceFlow id="Flow_03kaxqk" sourceRef="Activity_0utsuez" targetRef="Event_1mmvc3e"/>
+        <bpmn:endEvent id="Event_1x8stwc">
+            <bpmn:incoming>Flow_1wkjrcq</bpmn:incoming>
+        </bpmn:endEvent>
+        <bpmn:sequenceFlow id="Flow_1wkjrcq" sourceRef="Activity_0utsuez" targetRef="Event_1x8stwc"/>
+        <bpmn:boundaryEvent id="Event_1mmvc3e" attachedToRef="Activity_0utsuez" cancelActivity="false">
+<!--            <bpmn:outgoing>Flow_1xqvq8z</bpmn:outgoing>-->
+            <bpmn:timerEventDefinition id="TimerEventDefinition_1drsdn7">
+                <bpmn:timeCycle>R/PT1M</bpmn:timeCycle>
+            </bpmn:timerEventDefinition>
+        </bpmn:boundaryEvent>
+<!--        <bpmn:endEvent id="Event_0jzgzn3">-->
+<!--            <bpmn:incoming>Flow_1xqvq8z</bpmn:incoming>-->
+<!--        </bpmn:endEvent>-->
+<!--        <bpmn:sequenceFlow id="Flow_1xqvq8z" sourceRef="Event_1mmvc3e" targetRef="Event_0jzgzn3"/>-->
+    </bpmn:process>
+</bpmn:definitions>
